@@ -17,12 +17,18 @@ namespace TestApp.UnitTests
         private readonly string EmptyMessage = string.Empty;
         private const string WhitespaceMessage = " ";
 
+        private Logger logger;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            // Arrange
+            logger = new Logger();
+        }
+
         [TestMethod]
         public void Log_NotEmptyMessage_ShouldSetLastMessage()
         {
-            // Arrange
-            Logger logger = new Logger();
-
             // Act
             logger.Log(NotEmptyMessage);
 
@@ -33,9 +39,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void Log_EmptyMessage_ShouldThrowArgumentNullException()
         {
-            // Arrange
-            Logger logger = new Logger();
-
             // Act
             Action act = ()=> logger.Log(EmptyMessage);
 
@@ -47,9 +50,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void Log_WhitespaceMessage_ShouldThrowArgumentNullException()
         {
-            // Arrange
-            Logger logger = new Logger();
-
             // Act
             Action act = () => logger.Log(WhitespaceMessage);
 
@@ -60,9 +60,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void Log_NullMessage_ShouldThrowArgumentNullException()
         {
-            // Arrange
-            Logger logger = new Logger();
-
             // Act
             Action act = () => logger.Log(null);
 
