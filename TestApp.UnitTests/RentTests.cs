@@ -1,26 +1,26 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestApp.Fundamentals;
 
 namespace TestApp.UnitTests
 {
-    // TODO: napisz testy jednostkowe do klasy Rent i metody CanReturn()
-
     [TestClass]
     public class RentTests
     {
+        private Rent rent;
+        private User rentee;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            // Arrange            
+            rentee = new User();
+            rent = new Rent { Rentee = rentee };            
+        }
+
         [TestMethod]
         public void CanReturn_UserIsAdmin_ShouldReturnTrue()
         {
-            // Arrange
-            Rent rent = new Rent();
-            User rentee = new User();
-            rent.Rentee = rentee;
-
             // Act
             var result = rent.CanReturn(new User { IsAdmin = true });
 
@@ -31,11 +31,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void CanReturn_UserIsRentee_ShouldReturnTrue()
         {
-            // Arrange
-            Rent rent = new Rent();
-            User rentee = new User();
-            rent.Rentee = rentee;
-
             // Act
             var result = rent.CanReturn(rentee);
 
@@ -46,11 +41,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void CanReturn_UserIsNotRentee_ShouldReturnFalse()
         {
-            // Arrange
-            Rent rent = new Rent();
-            User rentee = new User();
-            rent.Rentee = rentee;
-
             // Act
             var result = rent.CanReturn(new User());
 
@@ -62,11 +52,6 @@ namespace TestApp.UnitTests
         [ExpectedException(typeof(ArgumentNullException))] // Assert
         public void CanReturn_UserIsEmpty_ShouldThrowArgumentNullException()
         {
-            // Arrange
-            Rent rent = new Rent();
-            User rentee = new User();
-            rent.Rentee = rentee;
-
             // Act
             var result = rent.CanReturn(null);
 
@@ -76,11 +61,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void CanReturn_UserIsEmpty_ShouldThrowArgumentNullException2()
         {
-            // Arrange
-            Rent rent = new Rent();
-            User rentee = new User();
-            rent.Rentee = rentee;
-
             // Act
             Action act = () => rent.CanReturn(null);
 
