@@ -66,5 +66,19 @@ namespace TestApp.UnitTests
             // Assert
             Assert.ThrowsException<ArgumentNullException>(act);
         }
+
+        [TestMethod]
+        public void Log_NotEmptyMessage_ShouldRaiseMessageLoggedEvent()
+        {
+            // Arrange
+            DateTime logDate = DateTime.MinValue;
+            logger.MessageLogged += (sender, args) => { logDate = args; };
+
+            // Act
+            logger.Log(NotEmptyMessage);
+
+            // Assert
+            Assert.AreNotEqual(DateTime.MinValue, logDate);
+        }
     }
 }
