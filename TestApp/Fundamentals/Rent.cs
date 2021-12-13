@@ -12,6 +12,9 @@ namespace TestApp.Fundamentals
 
         public bool CanReturn(User user)
         {
+            if (user == null)
+                throw new ArgumentNullException();
+
             if (user.IsAdmin)
                 return true;
 
