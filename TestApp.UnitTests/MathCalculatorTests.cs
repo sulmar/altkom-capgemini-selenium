@@ -6,13 +6,19 @@ namespace TestApp.UnitTests
     [TestClass]
     public class MathCalculatorTests
     {
+        private MathCalculator mathCalculator;
+
+        [TestInitialize]    // BeforeTest
+        public void Setup()
+        {
+            // Arrange
+            mathCalculator = new MathCalculator();
+        }
+
         // Method_Scenario_ExpectedBehavior
         [TestMethod]
         public void Add_PassValidArguments_ShouldReturnTheSumOfArguments()
         {
-            // Arrange
-            MathCalculator mathCalculator = new MathCalculator();
-
             // Act
             int result = mathCalculator.Add(1, 2);
 
@@ -23,9 +29,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void Max_FirstArgumentIsGreaterThanSecondArgument_ShouldReturnFirstArgument()
         {
-            // Arrange
-            MathCalculator mathCalculator = new MathCalculator();
-
             // Act
             int result = mathCalculator.Max(2, 1);
 
@@ -36,9 +39,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void Max_SecondArgumentIsGreaterThanFirstArgument_ShouldReturnSecondArgument()
         {
-            // Arrange
-            MathCalculator mathCalculator = new MathCalculator();
-
             // Act
             int result = mathCalculator.Max(1, 2);
 
@@ -49,9 +49,6 @@ namespace TestApp.UnitTests
         [TestMethod]
         public void Max_FirstAndSecondArgumentIsEquals_ShouldReturnsTheSameArgument()
         {
-            // Arrange
-            MathCalculator mathCalculator = new MathCalculator();
-
             // Act
             int result = mathCalculator.Max(1, 1);
 
