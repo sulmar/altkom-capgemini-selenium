@@ -27,11 +27,24 @@ namespace TestApp.Fundamentals
     {
         public static Report Create(string type)
         {
+            if (string.IsNullOrEmpty(type))
+                throw new ArgumentNullException();
+
             // P, LP, LF -> Osobowość prawna
             // F -> Działalność fizyczna
             // nieznany -> NotSupportedException
 
-            throw new NotImplementedException();
+            switch(type)
+            {
+                case "P":
+                case "LP":
+                case "LF":
+                    return new LegalPersonality();
+                case "F": return new SoleTraderReport();
+
+                default:
+                    throw new NotSupportedException();
+            }
         }
     }
 
