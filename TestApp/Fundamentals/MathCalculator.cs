@@ -15,7 +15,7 @@ namespace TestApp.Fundamentals
 
         public int Max(int a, int b)
         {
-            return (a > b) ? a : b;
+            return (a > b) ? b : a;
         }
     }
 }
