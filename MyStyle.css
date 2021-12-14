@@ -1,0 +1,23 @@
+﻿body {
+    background-color: blanchedalmond;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: yellow;
+}
+
+p {
+    color: white;
+}
+
+h2.title {
+    color: blueviolet;
+}
+
+.area {
+    padding: 10px
+}

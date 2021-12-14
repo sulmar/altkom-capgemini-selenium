@@ -7,6 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.UnitTests", "TestApp.UnitTests\TestApp.UnitTests.csproj", "{D83D9E0A-C018-4941-90FC-10AC03B293AF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{C323CA91-7918-45BC-B496-A2136721A494}"
+	ProjectSection(SolutionItems) = preProject
+		Index.html = Index.html
+		MyStyle.css = MyStyle.css
+		Selenium.html = Selenium.html
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eaapp.Tests", "Eaapp.Tests\Eaapp.Tests.csproj", "{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +30,10 @@ Global
 		{D83D9E0A-C018-4941-90FC-10AC03B293AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D83D9E0A-C018-4941-90FC-10AC03B293AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D83D9E0A-C018-4941-90FC-10AC03B293AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
