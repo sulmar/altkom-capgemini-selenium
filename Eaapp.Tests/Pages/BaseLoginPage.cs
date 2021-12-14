@@ -14,7 +14,7 @@ namespace Eaapp.Tests.Pages
 
         protected abstract string Url { get;  }
 
-        public string Title => driver.Title;
+       
 
         protected BaseLoginPage(IWebDriver driver) : base(driver)
         {

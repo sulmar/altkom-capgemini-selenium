@@ -11,5 +11,7 @@ namespace Eaapp.Tests.Pages
             this.driver = driver;
         }
 
+        public string Title => driver.Title;
+
     }
 }
