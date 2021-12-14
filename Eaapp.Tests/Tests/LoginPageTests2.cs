@@ -11,24 +11,26 @@ using System.Threading.Tasks;
 namespace Eaapp.Tests
 {
     [TestClass]
-    public class LoginPageTests2
+    public class SauceLoginPageTests
+    {
+
+    }
+
+   [TestClass]
+    public class EaappLoginPageTests
     {
         private readonly IWebDriver driver;
 
-        private const string url = "http://eaapp.somee.com/Account/Login";
-
-        public LoginPageTests2()
+        public EaappLoginPageTests()
         {
             driver = new ChromeDriver();
-
-            driver.Navigate().GoToUrl(url);
         }
 
         [TestMethod]
         public void Login_AsAdmin_ShouldDisplaysEmployeeDetails()
         {
             // Arrange
-            LoginPage loginPage = new LoginPage(driver);
+            EaappLoginPage loginPage = new EaappLoginPage(driver);
             HomePage homePage = new HomePage(driver);
 
             // Act
@@ -38,6 +40,19 @@ namespace Eaapp.Tests
             // Assert
             Assert.IsTrue(homePage.HasEmployeeDetailsLink);
         }
+
+        [TestMethod]
+        public void Login_AsStandardUser_ShouldDisplaysEmployeeDetails()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void Login_AsProblemUser_ShouldDisplaysEmployeeDetails()
+        {
+            Assert.Fail();
+        }
+
 
         [TestCleanup]
         public void Dispose()
