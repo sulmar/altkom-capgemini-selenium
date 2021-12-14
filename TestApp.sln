@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{C323CA91-7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eaapp.Tests", "Eaapp.Tests\Eaapp.Tests.csproj", "{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SauceDemo.Tests", "SauceDemo.Tests\SauceDemo.Tests.csproj", "{3E02491B-BE46-4E56-84D2-6918A4DD25BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E02491B-BE46-4E56-84D2-6918A4DD25BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E02491B-BE46-4E56-84D2-6918A4DD25BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E02491B-BE46-4E56-84D2-6918A4DD25BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E02491B-BE46-4E56-84D2-6918A4DD25BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
