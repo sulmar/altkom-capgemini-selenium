@@ -2,7 +2,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
+using System.Threading;
 
 namespace Eaapp.Tests
 {
@@ -46,7 +48,6 @@ namespace Eaapp.Tests
 
             // Prze³¹cza aktywn¹ zak³adkê
             // driver.SwitchTo().Window(driver.CurrentWindowHandle);            
-            
 
             // loginLink.SendKeys(Keys.Control + 't');
 
@@ -59,17 +60,81 @@ namespace Eaapp.Tests
             usernameField.SendKeys("admin");
             paswordField.SendKeys("password");
 
-            // #loginForm > form > div:nth-child(5) > div > input
+            // XPath
+            IWebElement loginButton = driver.FindElement(By.XPath("//input[@type='submit' and @value='Log in']"));
 
-            IWebElement loginButton = driver.FindElement(By.XPath(""));
+            loginButton.Click();
+
+            IWebElement employeeDetailsLink = driver.FindElement(By.LinkText("Employee Details"));
+
+            Assert.IsTrue(employeeDetailsLink.Displayed);
 
             // Zamyka wszystkie zak³adki
             // driver.Quit();
 
             // Zamyka tylko aktywn¹ zak³adkê
-            // driver.Close();
-
+            driver.Close();
         }
+
+        [TestMethod]
+        public void Login_AsAdminNewTab_ShouldDisplaysEmployeeDetails()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl(url);
+
+            IWebElement loginLink = driver.FindElement(By.LinkText("Login"));
+
+            // Click + Ctrl
+            Actions action = new Actions(driver);
+            action.KeyDown(Keys.Control).MoveToElement(loginLink).Click().Perform();
+                  
+           
+            // Prze³¹cza aktywn¹ zak³adkê
+            var lastWindow = driver.WindowHandles[driver.WindowHandles.Count - 1];
+            driver.SwitchTo().Window(lastWindow);
+
+            // loginLink.SendKeys(Keys.Control + 't');
+
+            //Assert.AreEqual("Login - Execute Automation Employee App", driver.Title);
+            //Assert.AreEqual("http://eaapp.somee.com/Account/Login", driver.Url);
+
+            // Z³a praktyka!
+            // Thread.Sleep(TimeSpan.FromSeconds(10));
+
+            // Wait Implicit (niejawne oczekiwanie)
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            // wait (explicit)
+            //  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            // IWebElement usernameField = wait.Until( d => d.FindElement(By.Id("UserName")));
+
+            IWebElement usernameField = driver.FindElement(By.Id("UserName"));
+            Assert.IsTrue(usernameField.Displayed);
+            usernameField.Click();
+
+            IWebElement paswordField = driver.FindElement(By.Id("Password"));
+       
+
+            usernameField.SendKeys("admin");
+            paswordField.SendKeys("password");
+
+            // XPath
+            IWebElement loginButton = driver.FindElement(By.XPath("//input[@type='submit' and @value='Log in']"));
+
+            loginButton.Click();
+
+            IWebElement employeeDetailsLink = driver.FindElement(By.LinkText("Employee Details"));
+
+            Assert.IsTrue(employeeDetailsLink.Displayed);
+
+            // Zamyka wszystkie zak³adki
+            // driver.Quit();
+
+            // Zamyka tylko aktywn¹ zak³adkê
+            driver.Close();
+        }
+
 
         [TestMethod]
         public void Login_BadLinkName_ShouldThrowsNoSuchElementException()
