@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Bupa.Bupa.Tests.Pages
 {
@@ -7,9 +9,17 @@ namespace Bupa.Bupa.Tests.Pages
     {
         protected readonly IWebDriver driver;
 
+        // Explicit Wait
+        protected WebDriverWait wait;
+
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
+
+            this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+
+            // Implit Wait (niejawne oczekiwanie)
+            // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); //  maksymalny czas oczekiwania
         }
 
         public string Title => driver.Title;

@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +13,13 @@ namespace Bupa.Bupa.Tests.Pages
     {
         public HomePage(IWebDriver driver) : base(driver)
         {
-        }
 
+        }
+        
         public IWebElement AcceptCookiesButton => driver.FindElement(By.Id("onetrust-accept-btn-handler"));
 
-        public bool HasAcceptCookiesButton => AcceptCookiesButton.Displayed;
+        public bool HasAcceptCookiesButton => wait.Until(driver => AcceptCookiesButton.Displayed); // Explicit Wait
 
         public void AcceptCookiesButtonClick() => AcceptCookiesButton.Click();
-
-
     }
 }
