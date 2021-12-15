@@ -23,7 +23,6 @@ namespace Bupa.Bupa.Tests.Pages
             LastNameField.SendKeys(lastname);
 
             TitleCodeComboBox.SelectByText(titleCode);
-            
         }
 
         public void Fill(TitleCodes titleCode, string firstname, string lastname)
@@ -37,11 +36,13 @@ namespace Bupa.Bupa.Tests.Pages
 
     public enum TitleCodes
     {
-        [Power(100, 3)]
         Mr = 36,
-
-        [Power(200, 2)]
-        Miss = 35
+        Miss = 35,
+        Mrs = 37,
+        Ms = 38,
+        Dr = 15,
+        Professor = 43,
+        Reverend = 46
     }
 
 

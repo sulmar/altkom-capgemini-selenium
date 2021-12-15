@@ -23,12 +23,12 @@ namespace Bupa.Bupa.Tests.Pages
 
         public void AcceptCookiesButtonClick() => AcceptCookiesButton.Click();
 
-        private IWebElement HealthLink => driver.FindElement(By.LinkText("Health"));
-        private IWebElement TravelLink => driver.FindElement(By.LinkText("Travel"));
+        private IWebElement HealthLink => wait.Until(driver=>driver.FindElement(By.LinkText("Health")));
+        private IWebElement TravelLink => wait.Until(driver=> driver.FindElement(By.LinkText("Travel")));
 
         public bool HasHealthLink => HealthLink.Enabled;
 
-        private string classHealthMenu => HealthLink.GetAttribute("class");
+        public string classHealthMenu => HealthLink.GetAttribute("class");
         public bool IsActiveHealthMenu => classHealthMenu == "menu-active";
 
         private string classTravelMenu => TravelLink.GetAttribute("class");

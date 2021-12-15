@@ -70,7 +70,9 @@ namespace Bupa.Bupa.Tests
 
             homePage.HealthLinkHover();
 
-            Assert.IsTrue(homePage.IsActiveHealthMenu);
+            // Assert
+            Assert.AreEqual("menu-active", homePage.classHealthMenu);
+            // Assert.IsTrue(homePage.IsActiveHealthMenu);
         }
 
         [TestMethod]
@@ -83,6 +85,8 @@ namespace Bupa.Bupa.Tests
                 homePage.AcceptCookiesButtonClick();
 
             homePage.MoveToTravelLinkHover();
+
+
         }
 
         [TestMethod]
@@ -107,7 +111,7 @@ namespace Bupa.Bupa.Tests
         [TestCleanup]
         public void Cleanup()
         {
-         //   driver.Quit();
+            driver.Quit();
         }
     }
 }
