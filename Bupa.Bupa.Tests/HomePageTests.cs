@@ -2,7 +2,6 @@ using Bupa.Bupa.Tests.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -109,53 +108,6 @@ namespace Bupa.Bupa.Tests
         public void Cleanup()
         {
          //   driver.Quit();
-        }
-    }
-
-
-    [TestClass]
-    public class PowerFactoryTests
-    {
-        [TestMethod]
-        public void Create_ValidTitleCodes_ReturnValue()
-        {
-            PowerFactory powerFactory = new PowerFactory();
-
-            var result = powerFactory.Create(TitleCodes.Miss);
-
-            Assert.AreEqual(200, result);
-        }
-    }
-
-
-    [AttributeUsage(AttributeTargets.Field)]
-    public class PowerAttribute : Attribute
-    {
-        public int Value { get; set; }
-
-        public PowerAttribute(int value, int life)
-        {
-            Value = value;
-        }
-    }
-
-    public class PowerFactory
-    {
-
-        public int Create(TitleCodes titleCodes)
-        {
-            // System.Reflection
-
-            throw new NotImplementedException();
-
-            // var attributes = titleCodes.GetType().GetCustomAttributes(typeof); 
-            
-            
-            //var powerAttribute = attributes.OfType<PowerAttribute>().SingleOrDefault();
-
-            //return powerAttribute.Value;
-
-
         }
     }
 }
