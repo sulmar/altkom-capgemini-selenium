@@ -1,7 +1,9 @@
 ﻿using Eaapp.Tests.Pages;
+using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,13 +31,12 @@ namespace Eaapp.Tests
         }
     }
 
-   [TestClass]
+    [TestClass]
     public class EaappLoginPageTests
     {
         private IWebDriver driver;
         private EaappLoginPage loginPage;
         private HomePage homePage;
-
 
         [TestInitialize]
         public void Initialize()
