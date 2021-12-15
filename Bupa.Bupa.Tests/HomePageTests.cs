@@ -2,6 +2,8 @@ using Bupa.Bupa.Tests.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.Threading;
 
 namespace Bupa.Bupa.Tests
 {
@@ -28,9 +30,32 @@ namespace Bupa.Bupa.Tests
             homePage.GoToUrl(url);
 
             // Act
-            Assert.IsTrue(homePage.HasAcceptCookiesButton);
+            homePage.AcceptCookiesButtonClick();
 
             // Assert
+            // Assert.IsTrue(homePage.)
+        }
+
+        [TestMethod]
+        public void Navigate_ClickHealth_ShouldHealthSection()
+        {
+            // Arrange
+            HealthPage healthPage = new HealthPage(driver);
+
+            homePage.GoToUrl(url);
+
+            // Act
+            if (homePage.HasAcceptCookiesButton)
+                homePage.AcceptCookiesButtonClick();            
+
+            homePage.HealthLinkClick();
+
+            // homePage.wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+
+            Assert.IsTrue(healthPage.Header.Displayed);
+
+            // Assert
+            Assert.IsTrue(healthPage.HasHeader);
         }
 
         [TestCleanup]

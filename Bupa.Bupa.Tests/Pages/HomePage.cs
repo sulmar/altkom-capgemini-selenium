@@ -21,5 +21,11 @@ namespace Bupa.Bupa.Tests.Pages
         public bool HasAcceptCookiesButton => wait.Until(driver => AcceptCookiesButton.Displayed); // Explicit Wait
 
         public void AcceptCookiesButtonClick() => AcceptCookiesButton.Click();
+
+        private IWebElement HealthLink => driver.FindElement(By.LinkText("Health"));
+
+        public bool HasHealthLink => HealthLink.Enabled;
+
+        public void HealthLinkClick() => HealthLink.Click();
     }
 }
