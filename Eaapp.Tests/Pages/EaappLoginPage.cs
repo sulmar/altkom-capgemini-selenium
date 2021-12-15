@@ -10,7 +10,7 @@ namespace Eaapp.Tests.Pages
 
         protected override By UserNameSelector => By.Id("UserName");
         protected override By PassswordSelector => By.Id("Password");
-        protected override By ButtonLoginSelector => By.XPath("//input[@type='submit' and @value='Log in']");
+        protected override By LoginButttonSelector => By.XPath("//input[@type='submit' and @value='Log in']");
 
         protected override string Url => "http://eaapp.somee.com/Account/Login";
     }

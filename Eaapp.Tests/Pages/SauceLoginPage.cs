@@ -10,7 +10,7 @@ namespace Eaapp.Tests.Pages
 
         protected override By UserNameSelector => By.Name("user-name");
         protected override By PassswordSelector => By.Name("password");
-        protected override By ButtonLoginSelector => By.Name("login-button");
+        protected override By LoginButttonSelector => By.Name("login-button");
 
         protected override string Url => "https://www.saucedemo.com/";
     }

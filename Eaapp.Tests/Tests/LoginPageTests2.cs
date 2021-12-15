@@ -7,35 +7,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Math;
+
 
 namespace Eaapp.Tests
 {
+ 
     [TestClass]
     public class SauceLoginPageTests
     {
+        private IWebDriver driver;
+        private SauceLoginPage loginPage;
+        private HomePage homePage;
 
+        [TestInitialize]
+        public void Initialize()
+        {
+            driver = new ChromeDriver();
+            loginPage = new SauceLoginPage(driver);
+            homePage = new HomePage(driver);
+        }
     }
 
    [TestClass]
     public class EaappLoginPageTests
     {
-        private readonly IWebDriver driver;
+        private IWebDriver driver;
+        private EaappLoginPage loginPage;
+        private HomePage homePage;
 
-        public EaappLoginPageTests()
+
+        [TestInitialize]
+        public void Initialize()
         {
             driver = new ChromeDriver();
+            loginPage = new EaappLoginPage(driver);
+            homePage = new HomePage(driver);
         }
 
         [TestMethod]
         public void Login_AsAdmin_ShouldDisplaysEmployeeDetails()
         {
             // Arrange
-            EaappLoginPage loginPage = new EaappLoginPage(driver);
-            HomePage homePage = new HomePage(driver);
-
             // Act
             loginPage.Login("admin", "password");
-            loginPage.ButtonLoginClick();
+            loginPage.LoginButtonClick();
 
             // Assert
             Assert.IsTrue(homePage.HasEmployeeDetailsLink);
@@ -55,7 +71,7 @@ namespace Eaapp.Tests
 
 
         [TestCleanup]
-        public void Dispose()
+        public void Cleanup()
         {
             driver.Quit();
         }
