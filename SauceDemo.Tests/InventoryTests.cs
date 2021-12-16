@@ -1,7 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using SauceDemo.Tests.Pages;
+using System;
+using System.Threading;
 
 namespace SauceDemo.Tests
 {
@@ -39,19 +42,27 @@ namespace SauceDemo.Tests
             inventoryPage.SortByPrice(sortOrder);
 
             //Assert
-            Assert.Fail();
+            if (sortOrder == Order.Ascending)
+                inventoryPage.inventoryItemPrices.Should().BeInAscendingOrder();
+            else
+                inventoryPage.inventoryItemPrices.Should().BeInDescendingOrder();
         }
 
         [DataRow(Order.Ascending)]
         [DataRow(Order.Descending)]
         [DataTestMethod]
-        public void Sort_SelectByNaeOrder_ShouldProductsSortedByName(Order sortOrder)
+        public void Sort_SelectByNameOrder_ShouldProductsSortedByName(Order sortOrder)
         {
             //Act
             inventoryPage.SortByName(sortOrder);
 
             //Assert
-            Assert.Fail();
+
+            // Install-Package FluentAssertions
+            if (sortOrder==Order.Ascending)
+                inventoryPage.inventoryItemNames.Should().BeInAscendingOrder();
+            else
+                inventoryPage.inventoryItemNames.Should().BeInDescendingOrder();
         }
 
         [TestCleanup]

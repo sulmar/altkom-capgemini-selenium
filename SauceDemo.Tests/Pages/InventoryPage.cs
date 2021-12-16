@@ -32,6 +32,27 @@ namespace SauceDemo.Tests.Pages
         public void SortByPrice(Order order) => productSortComboBox.SelectByValue(GetSortByPriceValue(order));
         public void SortByName(Order order) => productSortComboBox.SelectByValue(GetSortByNameValue(order));
 
+        private IEnumerable<IWebElement> inventoryItemNameElements => driver.FindElements(By.ClassName("inventory_item_name"));
+        public IEnumerable<string> inventoryItemNames => inventoryItemNameElements.Select(element => element.Text);
+
+        private IEnumerable<IWebElement> inventoryItemPriceElements => driver.FindElements(By.ClassName("inventory_item_price"));
+
+        private IEnumerable<IWebElement> inventoryItemElements => driver.FindElements(By.ClassName("inventory_item"));
+
+        private IEnumerable<InventoryItem> inventoryItems => inventoryItemElements.Select(item => new InventoryItem
+        {
+            Name = item.FindElement(By.ClassName("inventory_item_name")).Text,
+            Price = decimal.Parse(item.FindElements(By.ClassName("inventory_item_price"))[1].Text)
+        });
+
+        public IEnumerable<decimal> inventoryItemPrices => inventoryItems.Select(item => item.Price);
+
+    }
+
+    public class InventoryItem
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
     }
 
     public enum Order
