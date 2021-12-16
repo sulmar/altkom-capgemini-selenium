@@ -2,12 +2,39 @@ using Bupa.Bupa.Tests.Pages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 
 namespace Bupa.Bupa.Tests
 {
+
+    public class WebDriverFactory
+    {
+        public static IWebDriver GetDriver(BrowserTypes browserType)
+        {
+            switch (browserType)
+            {
+                case BrowserTypes.Chrome: return new ChromeDriver();
+                case BrowserTypes.Edge: return new EdgeDriver();
+                case BrowserTypes.IE: return new InternetExplorerDriver();
+                case BrowserTypes.Firefox: return new FirefoxDriver();
+
+                default: throw new NotSupportedException($"Not supported {browserType}");
+            }
+        }
+    }
+
+    
+
+    public enum BrowserTypes
+    {
+        Chrome, IE, Edge, Firefox, Safari
+    }
 
 
     [TestClass]
@@ -22,8 +49,9 @@ namespace Bupa.Bupa.Tests
         public void Initialize()
         {
             // Selenium.WebDriver.ChromeDriver
-            driver = new ChromeDriver();
-            homePage = new HomePage(driver);
+            driver = WebDriverFactory.GetDriver(BrowserTypes.Chrome);
+
+            homePage =new HomePage(driver);
         }
 
         [TestMethod]
