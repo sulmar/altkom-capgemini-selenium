@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Bupa.Bupa.Tests.Pages
 {
-    public class QuoteSmokingStatus : QuotePage
+    public class QuoteSmokingStatusPage : QuotePage
     {
-        public QuoteSmokingStatus(IWebDriver driver) : base(driver)
+        public QuoteSmokingStatusPage(IWebDriver driver) : base(driver)
         {
         }
 

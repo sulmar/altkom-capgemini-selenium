@@ -29,8 +29,9 @@ namespace Bupa.Bupa.Tests
             QuoteYourNamePage quoteYourNamePage = new QuoteYourNamePage(driver);
             QuoteCoverForPage quoteCoverForPage = new QuoteCoverForPage(driver);
             QuoteYourDobPage quoteYourDobPage = new QuoteYourDobPage(driver);
-            QuoteYourAddress quoteYourAddress = new QuoteYourAddress(driver);
-            QuoteSmokingStatus quoteSmokingStatus = new QuoteSmokingStatus(driver);
+            QuoteYourAddressPage quoteYourAddress = new QuoteYourAddressPage(driver);
+            QuoteSmokingStatusPage quoteSmokingStatus = new QuoteSmokingStatusPage(driver);
+            QuoteStartDatePage quoteStartDatePage = new QuoteStartDatePage(driver);
 
             driver.Manage().Window.Maximize();
 

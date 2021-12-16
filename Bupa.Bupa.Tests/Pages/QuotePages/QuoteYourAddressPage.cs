@@ -2,9 +2,9 @@
 
 namespace Bupa.Bupa.Tests.Pages
 {
-    public class QuoteYourAddress : QuotePage
+    public class QuoteYourAddressPage : QuotePage
     {
-        public QuoteYourAddress(IWebDriver driver) : base(driver)
+        public QuoteYourAddressPage(IWebDriver driver) : base(driver)
         {
         }
 
