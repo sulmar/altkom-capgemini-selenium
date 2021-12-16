@@ -58,6 +58,25 @@ namespace SauceDemo.Tests
             Assert.AreEqual("Epic sadface: Sorry, this user has been locked out.", loginPage.ErrorMessage.Text);
         }
 
+
+        [TestMethod]
+        public void Login_InvalidPassword_ShouldDisplayUsernameandPasswordErrorMessage()
+        {
+            //Arrange
+            LoginPage loginPage = new LoginPage(driver);
+
+            //Act
+            driver.Navigate().GoToUrl(url);
+
+            loginPage.Login("standard_user", "a");
+            loginPage.LoginButtonClick();
+
+            //Assert
+            Assert.AreEqual("Epic sadface: Username and password do not match any user in this service", loginPage.ErrorMessage.Text);
+        }
+
+
+
         [TestCleanup]
         public void CleanUp()
         {
