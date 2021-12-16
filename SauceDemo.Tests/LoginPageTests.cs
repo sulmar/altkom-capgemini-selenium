@@ -10,40 +10,6 @@ using System.Threading.Tasks;
 
 namespace SauceDemo.Tests
 {
-    [TestClass]
-    public class InventoryTests
-    {
-        private IWebDriver driver;
-
-        private const string url = "https://www.saucedemo.com/";
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            // Install-Package Selenium.WebDriver.ChromeDriver
-            driver = new ChromeDriver();
-        }
-
-        
-        [DataTestMethod]
-        public void Sort_SelectByPriceOrder_ShouldSortProductsBySelectedOrder(SortOrder sortOrder)
-        {
-            //Arrange
-            LoginPage loginPage = new LoginPage(driver);
-            InventoryPage inventoryPage = new InventoryPage(driver);
-            driver.Navigate().GoToUrl(url);
-
-            loginPage.Login("standard_user", "secret_sauce");
-            loginPage.LoginButtonClick();
-
-            //Act
-            inventoryPage.SortByPrice(sortOrder);
-
-            //Assert
-
-        }
-
-    }
 
     [TestClass]
     public class LoginPageTests
