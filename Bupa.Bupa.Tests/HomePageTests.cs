@@ -51,6 +51,7 @@ namespace Bupa.Bupa.Tests
 
             homePage.HealthLinkClick();
 
+            // Oczekiwanie a¿ strona zostanie w pe³ni za³adowana za pomoc¹ JavaScript
             // homePage.wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
 
             Assert.IsTrue(healthPage.Header.Displayed);
