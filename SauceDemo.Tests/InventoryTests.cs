@@ -30,10 +30,10 @@ namespace SauceDemo.Tests
             loginPage.LoginButtonClick();
         }
 
-        [DataRow(SortOrder.Ascending)]
-        [DataRow(SortOrder.Descending)]
+        [DataRow(Order.Ascending)]
+        [DataRow(Order.Descending)]
         [DataTestMethod]
-        public void Sort_SelectByPriceOrder_ShouldProductsSortedByPrice(SortOrder sortOrder)
+        public void Sort_SelectByPriceOrder_ShouldProductsSortedByPrice(Order sortOrder)
         {
             //Act
             inventoryPage.SortByPrice(sortOrder);
@@ -42,10 +42,10 @@ namespace SauceDemo.Tests
             Assert.Fail();
         }
 
-        [DataRow(SortOrder.Ascending)]
-        [DataRow(SortOrder.Descending)]
+        [DataRow(Order.Ascending)]
+        [DataRow(Order.Descending)]
         [DataTestMethod]
-        public void Sort_SelectByNaeOrder_ShouldProductsSortedByName(SortOrder sortOrder)
+        public void Sort_SelectByNaeOrder_ShouldProductsSortedByName(Order sortOrder)
         {
             //Act
             inventoryPage.SortByName(sortOrder);

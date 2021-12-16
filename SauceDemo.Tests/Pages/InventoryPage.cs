@@ -26,24 +26,15 @@ namespace SauceDemo.Tests.Pages
         // Install-Package Selenium.Support
         private SelectElement productSortComboBox => new SelectElement(productSortContainer);
 
-        private static string GetSortByPriceValue(SortOrder sortOrder) => sortOrder == SortOrder.Ascending ? "lohi" : "hilo";
-        private static string GetSortByNameValue(SortOrder sortOrder) => sortOrder == SortOrder.Ascending ? "az" : "za";
+        private static string GetSortByPriceValue(Order order) => order == Order.Ascending ? "lohi" : "hilo";
+        private static string GetSortByNameValue(Order order) => order == Order.Ascending ? "az" : "za";
 
+        public void SortByPrice(Order order) => productSortComboBox.SelectByValue(GetSortByPriceValue(order));
+        public void SortByName(Order order) => productSortComboBox.SelectByValue(GetSortByNameValue(order));
 
-        public void SortByPrice(SortOrder sortOrder)
-        {
-            productSortComboBox.SelectByValue(GetSortByPriceValue(sortOrder));
-        }
-
-        public void SortByName(SortOrder sortOrder)
-        {
-            productSortComboBox.SelectByValue(GetSortByNameValue(sortOrder));
-        }
-
-        
     }
 
-    public enum SortOrder
+    public enum Order
     {
         Ascending,
         Descending
