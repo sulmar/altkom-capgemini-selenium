@@ -16,7 +16,7 @@ namespace Bupa.Bupa.Tests.Pages
         {
             this.driver = driver;
 
-            this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
             // Implit Wait (niejawne oczekiwanie)
             // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); //  maksymalny czas oczekiwania

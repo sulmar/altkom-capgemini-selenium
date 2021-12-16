@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace Bupa.Bupa.Tests
 {
@@ -26,6 +27,10 @@ namespace Bupa.Bupa.Tests
         public void Navigate_GetAQuoteLinkClick_ShouldGetAQute()
         {
             QuoteYourNamePage quoteYourNamePage = new QuoteYourNamePage(driver);
+            QuoteCoverForPage quoteCoverForPage = new QuoteCoverForPage(driver);
+            QuoteYourDobPage quoteYourDobPage = new QuoteYourDobPage(driver);
+            QuoteYourAddress quoteYourAddress = new QuoteYourAddress(driver);
+            QuoteSmokingStatus quoteSmokingStatus = new QuoteSmokingStatus(driver);
 
             driver.Manage().Window.Maximize();
 
@@ -37,14 +42,38 @@ namespace Bupa.Bupa.Tests
 
             homePage.GetAQuoteLinkClick();
 
-            // quoteYourNamePage.Fill("Dr", "John", "Smith");
+            quoteYourNamePage.Fill(TitleCodes.Dr, "John", "Smith");
 
-            quoteYourNamePage.Fill(TitleCodes.Miss, "Ann", "Smith");
+            // Utworzenie zrzutu ekranu i zapis na dysk
+            //ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
+            //Screenshot screenshot = screenshotDriver.GetScreenshot();
+            //screenshot.SaveAsFile("quote-your-name.png", ScreenshotImageFormat.Png);
+
+            quoteYourNamePage.NextButtonClick();
+
+            Assert.AreEqual("Great to meet you John.", quoteCoverForPage.Greatings);
 
             
-            ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
-            Screenshot screenshot = screenshotDriver.GetScreenshot();
-            screenshot.SaveAsFile("quote-your-name.png", ScreenshotImageFormat.Png);
+
+            quoteCoverForPage.Fill(QuoteCoverForPage.Cover.JustMe);
+
+            quoteCoverForPage.NextButtonClick();
+
+            quoteYourDobPage.Fill(DateTime.Parse("1990-12-31"));
+
+            quoteYourDobPage.NextButtonClick();
+
+            quoteYourAddress.Fill("EC2R 7HJ", isUKResident: true);
+
+            quoteYourAddress.NextButtonClick();
+
+            quoteSmokingStatus.Fill(true);
+
+            quoteSmokingStatus.NextButtonClick();
+
+
+
+
 
         }
     }
