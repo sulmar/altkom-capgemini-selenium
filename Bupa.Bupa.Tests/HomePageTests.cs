@@ -8,6 +8,8 @@ using System.Threading;
 
 namespace Bupa.Bupa.Tests
 {
+
+
     [TestClass]
     public class HomePageTests
     {
@@ -90,23 +92,7 @@ namespace Bupa.Bupa.Tests
 
         }
 
-        [TestMethod]
-        public void Navigate_GetAQuoteLinkClick_ShouldGetAQute()
-        {
-            QuoteYourNamePage quoteYourNamePage = new QuoteYourNamePage(driver);
-
-            homePage.GoToUrl(url);
-
-            // Act
-            if (homePage.HasAcceptCookiesButton)
-                homePage.AcceptCookiesButtonClick();
-
-            homePage.GetAQuoteLinkClick();
-
-            // quoteYourNamePage.Fill("Dr", "John", "Smith");
-
-            quoteYourNamePage.Fill(TitleCodes.Miss, "Ann", "Smith");
-        }
+       
 
 
         [TestCleanup]
