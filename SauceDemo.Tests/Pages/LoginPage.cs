@@ -19,10 +19,20 @@ namespace SauceDemo.Tests.Pages
         public IWebElement LoginButton => driver.FindElement(By.Id("login-button"));
         public IWebElement ErrorMessage => driver.FindElement(By.XPath("//h3[@data-test='error']"));
 
+        // Wyszukiwanie relatywne
+        public IWebElement RelativePasswordField => driver.FindElement(RelativeBy.WithLocator(By.TagName("input")).Below(By.Id("user-name")));
+        public IWebElement RelativeUserName => driver.FindElement(RelativeBy.WithLocator(By.TagName("input")).Above(By.Id("password")));
+        public IWebElement NearUserName => driver.FindElement(RelativeBy.WithLocator(By.TagName("input")).Near(By.Id("password"), 200));
+
         public void Login(string userName, string password)
         {
-            UserNameField.SendKeys(userName);
-            PasswordField.SendKeys(password);
+            //    UserNameField.SendKeys(userName);
+            RelativeUserName.SendKeys(userName);
+
+            // PasswordField.SendKeys(password);
+            RelativePasswordField.SendKeys(password);
+
+          
         }
         public void LoginButtonClick()
         {

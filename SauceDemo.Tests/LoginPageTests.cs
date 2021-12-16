@@ -26,6 +26,17 @@ namespace SauceDemo.Tests
             driver = new ChromeDriver();
         }
 
+        /*
+         *   System.Diagnostics.Debug.WriteLine(RelativeUserName.Location);
+            System.Diagnostics.Debug.WriteLine(RelativeUserName.Size);
+         */
+
+        [TestMethod]
+        public void Test()
+        {
+
+        }
+
         [TestMethod]
         public void Login_AsStandardUser_ShouldRedirectToInventoryPage()
         {
