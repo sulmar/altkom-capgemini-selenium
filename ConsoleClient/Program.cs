@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Capgemini.Models;
+using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Net;
@@ -13,11 +15,63 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
-            IDisposableTest();
+            Employee employee = new Employee();
+
+            //if (employee!=null)
+             //   if (employee.ShipAddress!=null)
+            //        Console.WriteLine(employee.ShipAddress.City);
+
+            Console.WriteLine(employee?.ShipAddress?.City);
+
+            //if (employee != null and employee.ShipAddress != null)
+            //        Console.WriteLine(employee.ShipAddress.City);
+
+            string result;
+
+            //if (employee.Salary > 100)
+            //{
+            //    result = "dużo";
+            //}
+            //else
+            //{
+            //    result = "mało";
+            //}
+
+            //string result2 = employee.Salary > 100 ? "dużo" : "mało";
+
+            // PolimorphismTest();
+
+            // IDisposableTest();
 
             // UsingNamespacesTest();
 
             // SqlConnectionTest();
+        }
+
+        private static void PolimorphismTest()
+        {
+            Person person1 = new Employee { FirstName = "John", LastName = "Smith", Salary = 100 };
+            Person person2 = new Person { FirstName = "Ann", LastName = "Smith" };
+
+            ICollection<Person> people = new List<Person>();
+            people.Add(person1);
+            people.Add(person2);
+
+            foreach (var person in people)
+            {
+                // W przypadku braku poliformizmu
+                //if (person.GetType() == typeof(Person))
+                //{
+                //    person.DoWork();
+                //}
+                //else if (person.GetType() == typeof(Employee))
+                //{
+                //    Employee employee = (Employee)person;
+                //    employee.DoWork();
+                //}
+
+                person.DoWork();
+            }
         }
 
         private static void IDisposableTest()
@@ -110,5 +164,45 @@ namespace Capgemini.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+    }
+
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        // virtual - włącza Polimorfizm (wielopostaciowość)
+        //public virtual void DoWork() 
+        //{
+        //    Console.WriteLine("Working for free");
+        //}
+
+        public void DoWork()
+        {
+            Console.WriteLine("Working for free");
+        }
+    }
+
+    public class Employee : Person
+    {
+        public decimal Salary { get; set; }
+
+        //public override void DoWork()
+        //{
+        //    Console.WriteLine($"Working for salary {Salary}");
+        //}
+
+        public Address ShipAddress { get; set; }
+
+        public new void DoWork()
+        {
+            Console.WriteLine($"Working for salary {Salary}");
+        }
+        
+    }
+
+    public class Address
+    {
+        public string City { get; set; }
     }
 }
