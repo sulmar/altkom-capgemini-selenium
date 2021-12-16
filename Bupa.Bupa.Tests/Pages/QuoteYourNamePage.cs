@@ -3,6 +3,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Bupa.Bupa.Tests.Pages
 {
+
     public class QuoteYourNamePage : BasePage
     {
         public QuoteYourNamePage(IWebDriver driver) : base(driver)
