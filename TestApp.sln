@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{FA5E06FD-CEC2-4FC8-86C9-4E6C8A72FBDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp.UnitTests", "TestApp.UnitTests\TestApp.UnitTests.csproj", "{D83D9E0A-C018-4941-90FC-10AC03B293AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp.UnitTests", "TestApp.UnitTests\TestApp.UnitTests.csproj", "{D83D9E0A-C018-4941-90FC-10AC03B293AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{C323CA91-7918-45BC-B496-A2136721A494}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,15 +14,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{C323CA91-7
 		Selenium.html = Selenium.html
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eaapp.Tests", "Eaapp.Tests\Eaapp.Tests.csproj", "{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eaapp.Tests", "Eaapp.Tests\Eaapp.Tests.csproj", "{5D5A542D-5D97-4426-ACE7-A0AB72A9C031}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SauceDemo.Tests", "SauceDemo.Tests\SauceDemo.Tests.csproj", "{3E02491B-BE46-4E56-84D2-6918A4DD25BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SauceDemo.Tests", "SauceDemo.Tests\SauceDemo.Tests.csproj", "{3E02491B-BE46-4E56-84D2-6918A4DD25BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bupa.Bupa.Tests", "Bupa.Bupa.Tests\Bupa.Bupa.Tests.csproj", "{708A1640-C40B-490C-8504-9D073B53F103}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bupa.Bupa.Tests", "Bupa.Bupa.Tests\Bupa.Bupa.Tests.csproj", "{708A1640-C40B-490C-8504-9D073B53F103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bupa.Finder.Tests", "Bupa.Finder.Tests\Bupa.Finder.Tests.csproj", "{2418ED6E-5F9B-469D-90CC-E8B3254ED74F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bupa.Finder.Tests", "Bupa.Finder.Tests\Bupa.Finder.Tests.csproj", "{2418ED6E-5F9B-469D-90CC-E8B3254ED74F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bupa.Careers.Tests", "Bupa.Careers.Tests\Bupa.Careers.Tests.csproj", "{0DB8BE62-9019-4058-ABC9-3684A2CDD228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bupa.Careers.Tests", "Bupa.Careers.Tests\Bupa.Careers.Tests.csproj", "{0DB8BE62-9019-4058-ABC9-3684A2CDD228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{BC0C24B9-BAC6-4E49-98F8-225C9A5ACE5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +60,10 @@ Global
 		{0DB8BE62-9019-4058-ABC9-3684A2CDD228}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DB8BE62-9019-4058-ABC9-3684A2CDD228}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DB8BE62-9019-4058-ABC9-3684A2CDD228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC0C24B9-BAC6-4E49-98F8-225C9A5ACE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC0C24B9-BAC6-4E49-98F8-225C9A5ACE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC0C24B9-BAC6-4E49-98F8-225C9A5ACE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC0C24B9-BAC6-4E49-98F8-225C9A5ACE5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

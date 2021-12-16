@@ -8,6 +8,7 @@ using TestApp.Fundamentals;
 
 namespace TestApp.UnitTests
 {
+
     [TestClass]
     public class LoggerTests
     {

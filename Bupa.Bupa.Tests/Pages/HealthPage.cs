@@ -18,6 +18,7 @@ namespace Bupa.Bupa.Tests.Pages
 
 
         public bool HasHeader => wait.Until(driver=> Header.Displayed);
+
     }
 
    
