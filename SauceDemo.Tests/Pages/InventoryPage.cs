@@ -15,7 +15,7 @@ namespace SauceDemo.Tests.Pages
         }
 
         private IWebElement inventoryContainer => driver.FindElement(By.Id("inventory_container"));
-        public bool HasInventoryContainer => inventoryContainer.Displayed;
+        public bool HasInventoryPage => inventoryContainer.Displayed;
 
         private IWebElement titleHeader => driver.FindElement(By.XPath("//span[@class='title']"));
 

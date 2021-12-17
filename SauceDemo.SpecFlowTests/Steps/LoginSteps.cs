@@ -54,7 +54,7 @@ namespace SauceDemo.SpecFlowTests.Steps
         [Then(@"I see Inventory Page\.")]
         public void ThenISeeInventoryPage()
         {
-            inventoryPage.HasInventoryContainer.Should().BeTrue();
+            inventoryPage.HasInventoryPage.Should().BeTrue();
         }
 
 
