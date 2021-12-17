@@ -2,10 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Net;
-using System.Net.Http;
 using Alt = Altkom.Models;
 using Cpm = Capgemini.Models;
 
@@ -17,42 +14,64 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee();
+            OperatorOverloadingTest();
+            ShortCheckNullTest();
+            ShortIfTest();
+            PolimorphismTest();
+            UsingNamespacesTest();
+            IDisposableTest();
+            SqlConnectionTest();
+        }
 
-            foreach(Person person in employee)
-            {
-
-            }
-
-            //if (employee!=null)
-             //   if (employee.ShipAddress!=null)
-            //        Console.WriteLine(employee.ShipAddress.City);
-
-            Console.WriteLine(employee?.ShipAddress?.City);
-
-            //if (employee != null and employee.ShipAddress != null)
-            //        Console.WriteLine(employee.ShipAddress.City);
-
+        private static void ShortIfTest()
+        {
+            Employee employee = new Employee { Salary = 200 };
             string result;
 
-            //if (employee.Salary > 100)
-            //{
-            //    result = "dużo";
-            //}
-            //else
-            //{
-            //    result = "mało";
-            //}
+            // Zamiast 
+            if (employee.Salary > 100)
+            {
+                result = "dużo";
+            }
+            else
+            {
+                result = "mało";
+            }
 
-            //string result2 = employee.Salary > 100 ? "dużo" : "mało";
 
-            // PolimorphismTest();
+            // Możemy napisać tak:
+            string result2 = employee.Salary > 100 ? "dużo" : "mało";
+        }
 
-            // IDisposableTest();
+        private static void ShortCheckNullTest()
+        {
+            Employee employee = new Employee();
 
-            // UsingNamespacesTest();
+            // Zamiast takiego kodu:
+            //if (employee!=null)
+            //   if (employee.ShipAddress!=null)
+            //        Console.WriteLine(employee.ShipAddress.City);
 
-            // SqlConnectionTest();
+            // Możemy napisać tak:
+            Console.WriteLine(employee?.ShipAddress?.City);
+        }
+
+        // Przykład przeciążania operatorów
+        private static void OperatorOverloadingTest()
+        {
+            Person man = new Employee { FirstName = "John", LastName = "Smith", Salary = 100 };
+            Person woman = new Person { FirstName = "Ann", LastName = "Smith" };
+
+            // Dzięki przeciążaniu operatorów zamiast pisania wielokrotnie takiego samego kodu:
+            // Person child = new Person();
+            // child.Parents = man.FirstName + man.LastName + woman.FirstName + woman.LastName;
+
+            // możemy napisać tak:
+            Person child = man + woman;
+
+            Console.WriteLine(child);
+
+
         }
 
         private static void PolimorphismTest()
@@ -133,16 +152,17 @@ namespace ConsoleClient
         private static void SqlConnectionTest()
         {
             string connectionString = "...";
-            SqlConnection connection = new SqlConnection(connectionString);
 
-            connection.Open();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
 
-            var command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM customers"; // SQL
-            command.ExecuteReader();
+                connection.Open();
 
-            connection.Close();
-            connection.Dispose();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM customers"; // SQL
+                command.ExecuteReader();
+            }
+
         }
 
         private static void UsingNamespacesTest()
@@ -183,6 +203,18 @@ namespace Capgemini.Models
         //{
         //    Console.WriteLine("Working for free");
         //}
+
+        public string Parents { get; set; }
+
+        // Przeciążanie operatorów
+        public static Person operator +(Person man, Person woman)
+        {
+            Person child = new Person();
+
+            child.Parents = man.FirstName + man.LastName + woman.FirstName + woman.LastName;
+
+            return child;
+        }
 
         public void DoWork()
         {
