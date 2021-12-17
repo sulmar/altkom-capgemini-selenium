@@ -31,9 +31,8 @@ namespace SauceDemo.Tests.Pages
 
             // PasswordField.SendKeys(password);
             RelativePasswordField.SendKeys(password);
-
-          
         }
+
         public void LoginButtonClick()
         {
             LoginButton.Click();

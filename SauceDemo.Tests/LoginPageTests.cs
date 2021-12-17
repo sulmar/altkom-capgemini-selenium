@@ -44,10 +44,12 @@ namespace SauceDemo.Tests
             LoginPage loginPage = new LoginPage(driver);
             InventoryPage inventoryPage = new InventoryPage(driver);
 
+            loginPage.Login("standard_user", "secret_sauce");
+
             //Act
             driver.Navigate().GoToUrl(url);
 
-            loginPage.Login("standard_user", "secret_sauce");
+
             loginPage.LoginButtonClick();
 
             //Assert

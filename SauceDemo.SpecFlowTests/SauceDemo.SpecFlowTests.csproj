@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Hooks\" />
+    <ProjectReference Include="..\SauceDemo.Tests\SauceDemo.Tests.csproj" />
   </ItemGroup>
 
 </Project>
