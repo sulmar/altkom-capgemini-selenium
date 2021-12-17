@@ -11,7 +11,9 @@ namespace Bupa.Bupa.Tests.Pages
         }
 
         private IWebElement TitleCodeField => driver.FindElement(By.Id("Prospect_ApplicantDetails_TitleCode"));
+        // private IWebElement FirstNameField => driver.FindElement(By.Id("Prospect_ApplicantDetails_FirstName"));
         private IWebElement FirstNameField => driver.FindElement(By.Id("Prospect_ApplicantDetails_FirstName"));
+
         private IWebElement LastNameField => driver.FindElement(By.Id("Prospect_ApplicantDetails_LastName"));
 
         public SelectElement TitleCodeComboBox => new SelectElement(TitleCodeField);
@@ -23,7 +25,6 @@ namespace Bupa.Bupa.Tests.Pages
         {
             FirstNameField.SendKeys(firstname);
             LastNameField.SendKeys(lastname);
-
             TitleCodeComboBox.SelectByText(titleCode);
         }
 
