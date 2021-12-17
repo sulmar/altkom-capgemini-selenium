@@ -15,7 +15,7 @@ namespace Bupa.Bupa.Tests.Pages
         {
             wait.Until(driver => PolicyStartDateField.Displayed);
 
-            PolicyStartDateField.SendKeys(dateOfBirth.ToString());
+            PolicyStartDateField.SendKeys(dateOfBirth);
         }
     }
 

@@ -37,5 +37,7 @@ namespace Bupa.Bupa.Tests.Pages
         {
             return new SelectElement(element);
         }
+
+        public static void SendKeys(this IWebElement element, DateTime dateTime) => element.SendKeys(dateTime.ToString());
     }
 }
