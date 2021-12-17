@@ -20,6 +20,8 @@ namespace SauceDemo.SpecFlowTests.Hooks
         {
             this.scenarioContext = scenarioContext;
 
+            SeleniumDriver seleniumDriver = new SeleniumDriver(scenarioContext);
+
             driver = scenarioContext.Get<IWebDriver>("WebDriver");
         }
 

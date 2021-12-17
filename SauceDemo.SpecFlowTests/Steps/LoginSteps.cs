@@ -48,7 +48,7 @@ namespace SauceDemo.SpecFlowTests.Steps
         [Then(@"I am logged")]
         public void ThenIAmLogged()
         {
-            ScenarioContext.Current.Pending();
+            // ScenarioContext.Current.Pending();
         }
 
         [Then(@"I see Inventory Page\.")]

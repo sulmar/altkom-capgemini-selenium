@@ -69,7 +69,7 @@ namespace SauceDemo.Tests
             loginPage.LoginButtonClick();
 
             //Assert
-            Assert.AreEqual("Epic sadface: Sorry, this user has been locked out.", loginPage.ErrorMessage.Text);
+            Assert.AreEqual("Epic sadface: Sorry, this user has been locked out.", loginPage.ErrorMessage);
         }
 
 
@@ -86,7 +86,7 @@ namespace SauceDemo.Tests
             loginPage.LoginButtonClick();
 
             //Assert
-            Assert.AreEqual("Epic sadface: Username and password do not match any user in this service", loginPage.ErrorMessage.Text);
+            Assert.AreEqual("Epic sadface: Username and password do not match any user in this service", loginPage.ErrorMessage);
         }
 
 
