@@ -15,7 +15,7 @@ namespace SauceDemo.SpecFlowTests.Drivers
 
             switch (browserType)
             {
-                case BrowserTypes.Chrome: return new ChromeDriver(driverOptions);
+                case BrowserTypes.Chrome: return new ChromeDriver(@"C:\temp\drivers\");
                 case BrowserTypes.Edge: return new EdgeDriver(driverOptions);
                 case BrowserTypes.IE: return new InternetExplorerDriver(driverOptions);
                 case BrowserTypes.Firefox: return new FirefoxDriver(driverOptions);
