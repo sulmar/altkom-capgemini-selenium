@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Bupa.Bupa.Tests.Pages
 {
+    // Metoda rozszerzająca (Extension Method)
     // na podst. https://stackoverflow.com/a/10017032/1180808
     public static class WebDriverExtensions
     {
@@ -30,6 +31,11 @@ namespace Bupa.Bupa.Tests.Pages
                 return wait.Until(drv => (drv.FindElements(by).Count > 0) ? drv.FindElements(by) : null);
             }
             return driver.FindElements(by);
+        }
+
+        public static SelectElement AsSelectElement(this IWebElement element)
+        {
+            return new SelectElement(element);
         }
     }
 }

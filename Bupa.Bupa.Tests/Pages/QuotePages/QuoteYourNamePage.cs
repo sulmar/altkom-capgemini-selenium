@@ -10,22 +10,20 @@ namespace Bupa.Bupa.Tests.Pages
         {
         }
 
-        private IWebElement TitleCodeField => driver.FindElement(By.Id("Prospect_ApplicantDetails_TitleCode"));
+        private SelectElement TitleCodeField => driver.FindElement(By.Id("Prospect_ApplicantDetails_TitleCode")).AsSelectElement();
+        
         // private IWebElement FirstNameField => driver.FindElement(By.Id("Prospect_ApplicantDetails_FirstName"));
-        private IWebElement FirstNameField => driver.FindElement(By.Id("Prospect_ApplicantDetails_FirstName"));
+        private IWebElement FirstNameField => driver.FindElement(By.Id("Prospect_ApplicantDetails_FirstName"), 5);
 
         private IWebElement LastNameField => driver.FindElement(By.Id("Prospect_ApplicantDetails_LastName"));
-
-        public SelectElement TitleCodeComboBox => new SelectElement(TitleCodeField);
-    
-
+        
 
         // Selenium.Support
         public void Fill(string titleCode, string firstname, string lastname)
         {
             FirstNameField.SendKeys(firstname);
             LastNameField.SendKeys(lastname);
-            TitleCodeComboBox.SelectByText(titleCode);
+            TitleCodeField.SelectByText(titleCode);
         }
 
         public void Fill(TitleCodes titleCode, string firstname, string lastname)
@@ -33,7 +31,7 @@ namespace Bupa.Bupa.Tests.Pages
             FirstNameField.SendKeys(firstname);
             LastNameField.SendKeys(lastname);
 
-            TitleCodeComboBox.SelectByValue(((int)titleCode).ToString());
+            TitleCodeField.SelectByValue(((int)titleCode).ToString());
         }
     }
 
