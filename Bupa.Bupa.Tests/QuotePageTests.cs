@@ -19,6 +19,7 @@ namespace Bupa.Bupa.Tests
         {
             // Selenium.WebDriver.ChromeDriver
             driver = new ChromeDriver();
+            
             homePage = new HomePage(driver);
         }
 

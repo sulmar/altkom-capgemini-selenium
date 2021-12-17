@@ -1,5 +1,6 @@
 ﻿using Capgemini.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -16,6 +17,11 @@ namespace ConsoleClient
         static void Main(string[] args)
         {
             Employee employee = new Employee();
+
+            foreach(Person person in employee)
+            {
+
+            }
 
             //if (employee!=null)
              //   if (employee.ShipAddress!=null)
@@ -166,7 +172,7 @@ namespace Capgemini.Models
         public string LastName { get; set; }
     }
 
-    public class Person
+    public class Person : IEnumerable
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -181,6 +187,13 @@ namespace Capgemini.Models
         {
             Console.WriteLine("Working for free");
         }
+
+        public IEnumerable<Person> Children { get; set; }
+
+        public IEnumerator GetEnumerator()
+        {
+            return Children.GetEnumerator();            
+        }
     }
 
     public class Employee : Person
@@ -193,6 +206,8 @@ namespace Capgemini.Models
         //}
 
         public Address ShipAddress { get; set; }
+
+        
 
         public new void DoWork()
         {

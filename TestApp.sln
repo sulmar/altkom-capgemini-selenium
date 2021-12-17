@@ -24,9 +24,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bupa.Finder.Tests", "Bupa.F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bupa.Careers.Tests", "Bupa.Careers.Tests\Bupa.Careers.Tests.csproj", "{0DB8BE62-9019-4058-ABC9-3684A2CDD228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{BC0C24B9-BAC6-4E49-98F8-225C9A5ACE5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{BC0C24B9-BAC6-4E49-98F8-225C9A5ACE5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demoqa.Tests", "Demoqa.Tests\Demoqa.Tests.csproj", "{38BF86EF-C55A-4D77-9D94-CF4AB7381DE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demoqa.Tests", "Demoqa.Tests\Demoqa.Tests.csproj", "{38BF86EF-C55A-4D77-9D94-CF4AB7381DE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp.SpecFlowTests", "TestApp.SpecFlowTests\TestApp.SpecFlowTests.csproj", "{056B5705-C0BA-4385-9263-7D9697732B0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SauceDemo.SpecFlowTests", "SauceDemo.SpecFlowTests\SauceDemo.SpecFlowTests.csproj", "{06F40F0E-6180-4126-AC77-17A35AB03989}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +74,14 @@ Global
 		{38BF86EF-C55A-4D77-9D94-CF4AB7381DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38BF86EF-C55A-4D77-9D94-CF4AB7381DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38BF86EF-C55A-4D77-9D94-CF4AB7381DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056B5705-C0BA-4385-9263-7D9697732B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056B5705-C0BA-4385-9263-7D9697732B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056B5705-C0BA-4385-9263-7D9697732B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056B5705-C0BA-4385-9263-7D9697732B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F40F0E-6180-4126-AC77-17A35AB03989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F40F0E-6180-4126-AC77-17A35AB03989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F40F0E-6180-4126-AC77-17A35AB03989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F40F0E-6180-4126-AC77-17A35AB03989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

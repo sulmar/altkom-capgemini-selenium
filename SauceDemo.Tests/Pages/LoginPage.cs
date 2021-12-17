@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SauceDemo.Tests.Pages
 {
 
-    class LoginPage : BasePage
+    public class LoginPage : BasePage
     {
         public LoginPage(IWebDriver driver) : base(driver)
         {
